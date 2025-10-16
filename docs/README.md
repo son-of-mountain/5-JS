@@ -1,3 +1,5 @@
+Visiter le site : [monCV](https://son-of-mountain.github.io/5-JS/)
+
 ![Moi](image/tp.png "Mouaad ELHANSALI")
 
 # TP - Javascript 
@@ -29,9 +31,9 @@ Modifier l'apparition pour qu'elle soit progressive avec croissance lentement ju
 
 
 resultat : 
-![question 3](image.png)
+![question 3](image/image.png)
 
-![une se ferme une s'ouvert](image-1.png)
+![une se ferme une s'ouvert](image/image-1.png)
 
 
 ## 4-apparition de tooltip sur les competences
@@ -64,7 +66,7 @@ ajouter l'apparition d'une description detaillee lors du passage de la souris su
 - manipulation de `style.opacity` et `style.visibility`
 - positionnement CSS absolute pour placer les tooltip
 
-![Apparition de too](image-2.png)
+![Apparition de too](image/image-2.png)
 
 ### tooltip qui suit le curseur
 
@@ -79,9 +81,9 @@ modifier le fonctionnement pour que la tooltip suive le curseur de la souris au 
 - Ajout de l'eveneent `mousemove` sur chaquecompetence poure detecter le mouvement
 - Creation de la fonction `updateTooltipPosition()` pour maj la position
 
-![alt text](<Screenshot From 2025-10-16 08-52-02.png>)
+![alt text](image/Screenshot From 2025-10-16 08-52-02.png)
 
-![alt text](<Screenshot From 2025-10-16 08-52-07.png>)
+![alt text](image/Screenshot From 2025-10-16 08-52-07.png)
 
 ### deploiement et test sur terminal tactile
 
@@ -102,7 +104,7 @@ sur un terminal tactile, on note plusieur problemes :
 - le tooltip ne s'affiche pas correctement car il n'y a pas de curseur de souris
 - le tooltip est concu pour suivre un curseur qui n'existe pas sur tactile
 
-![alt text](image-3.png)
+![alt text](image/image-3.png)
 
 ## 5-auto-evaluation des connaissances
 
@@ -136,7 +138,7 @@ afficher une auto-evaluation des connaissances techniques avec un systeme d'etoi
 es en HTML
 - CSS pour couleur doree et espacement
 
-![ajout des etoiles](image-4.png)
+![ajout des etoiles](image/image-4.png)
 
 ### histogramme avec canvas
 
@@ -161,8 +163,8 @@ afficher les valeur d'evaluation dans un graphique histogramme avec canvas :
 - API Canvas 2D avec `getContext('2d')`
 
 
-![Images de canvas](image-5.png)
+![Images de canvas](image/image-5.png)
 
 
 ### Creation de tag et publication de site 
-![Pusher le tag autoevaluation](image-6.png)
+![Pusher le tag autoevaluation](image/image-6.png)
