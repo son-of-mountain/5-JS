@@ -66,4 +66,40 @@ ajouter l'apparition d'une description detaillee lors du passage de la souris su
 
 ![Apparition de too](image-2.png)
 
-## Apparition des descriptions detaillees 
+### tooltip qui suit le curseur
+
+modifier le fonctionnement pour que la tooltip suive le curseur de la souris au lieu de rester fixe :
+
+- le tooltip doit suivre le mouvement de la souris en temps reel
+- il se deplace fluidement avec le curseur
+- reste visible tant que la souris est sur la competences
+
+**etapes realisees :**
+
+- Ajout de l'eveneent `mousemove` sur chaquecompetence poure detecter le mouvement
+- Creation de la fonction `updateTooltipPosition()` pour maj la position
+
+![alt text](<Screenshot From 2025-10-16 08-52-02.png>)
+
+![alt text](<Screenshot From 2025-10-16 08-52-07.png>)
+
+### deploiement et test sur terminal tactile
+
+Faire un tag "description" et deployer le cv sur gitlab puis l'afficher sur un terminal tactile :
+
+**etapes realisees :**
+
+- creation du tag `description` avec git
+- commande : `git tag description`
+- push du tag vers gitlab : `git push origin description`
+- deploiement du cv sur gitlab pages ou serveur
+- test sur un terminal tactile (tablette, iphone...)
+
+**observation sur le tooltip :**
+
+sur un terminal tactile, on note plusieur problemes :
+
+- le tooltip ne s'affiche pas correctement car il n'y a pas de curseur de souris
+- le tooltip est concu pour suivre un curseur qui n'existe pas sur tactile
+
+![alt text](image-3.png)
