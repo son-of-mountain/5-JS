@@ -138,7 +138,7 @@ es en HTML
 
 ![ajout des etoiles](image-4.png)
 
-### 5.1-histogramme avec canvas
+### histogramme avec canvas
 
 afficher les valeur d'evaluation dans un graphique histogramme avec canvas :
 
@@ -153,24 +153,13 @@ afficher les valeur d'evaluation dans un graphique histogramme avec canvas :
 - ajout d'un element `<canvas id="skillsCanvas">` dans le HTML
 - fonction `drawSkillsChart()` pour dessiner l'histogramme
 - utilisation de `getContext('2d')` pour obtenir le contexte de dessin
-- calcul des dimension : largeur barre (80px), hauteur max (300px), espacement (20px)
-- dessin des axes avec `moveTo()` et `lineTo()`
-- ajout des graduation sur l'axe Y (0 a 5 etoiles)
-- boucle pour dessiner chaque barre avec `fillRect()`
-- couleur differente pour chaque competence (JavaScript jaune, React bleu, etc)
-- bordure noire autour de chaque barre avec `strokeRect()`
-- texte avec le nom de la competence en rotation (`rotate()`)
-- affichage du niveau sur chaque barre en blanc et gras
 - titre du graphique en haut
 
 **technologies utilisees :**
 
 - element HTML5 `<canvas>` pour le dessin
 - API Canvas 2D avec `getContext('2d')`
-- `fillRect()` pour dessiner les rectangles des barres
-- `strokeRect()` pour les bordures
-- `fillText()` pour afficher le texte
-- `translate()` et `rotate()` pour rotation du texte
-- `save()` et `restore()` pour sauvegarder/restaurer le contexte
-- calcul proportionel : `(niveau/5)*hauteurMax`
-- tableau javascript pour stocker les donnees
+
+
+![Images de canvas](image-5.png)
+
