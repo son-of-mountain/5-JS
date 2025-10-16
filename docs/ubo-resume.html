@@ -142,7 +142,17 @@
                         </ul>
                     </div>
                 </dl>
-            </section>       <section id="formations">
+            </section>
+            
+
+
+            <section id="skills-chart">
+                <h3>Graphique d'auto-évaluation</h3>
+                <div id="chart-container"><canvas id="skillsCanvas" width="800" height="400"></canvas>
+                </div>
+            </section>
+            
+            <section id="formations">
                 <h3>Formations</h3>
                 <ul>
                     <li><strong>Master DOSI</strong> — Université de Bretagne Occidentale, 2019 <button class="details-btn" onclick="toggleDetails('form1')">+</button>
@@ -191,116 +201,6 @@
 
     </div>
     
-    <script>
-        //fonction pour ouvrir ou fermer les detail
-        function toggleDetails(elementId) {
-            const detailsElement = document.getElementById(elementId);const button = event.target;
-            const isCurrentlyOpen = !detailsElement.classList.contains('hidden');
-            closeAllDetails();//on ferme tout dabord
-            if (!isCurrentlyOpen) {
-detailsElement.className = detailsElement.className.replace('hidden', '').trim();button.className = button.className + ' active';button.textContent = '×';
-                detailsElement.style.opacity = '0';detailsElement.style.transform = 'translateY(-10px)';
-                setTimeout(() => {detailsElement.style.opacity = '1';detailsElement.style.transform = 'translateY(0)';}, 10);
-            }
-        }
-        
-//fonction pour fermer tous les descriptions ouvert
-        function closeAllDetails() {
-            const allDetails = document.getElementsByClassName('details');const allButtons = document.getElementsByClassName('details-btn');
-            //boucle pour fermer chaque detail
-            for (let i = 0; i < allDetails.length; i++) {
-                const detail = allDetails[i];
-                if (!detail.className.includes('hidden')) {
-detail.style.opacity = '0';detail.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {if (!detail.className.includes('hidden')) {detail.className = detail.className + ' hidden';}}, 300);
-                }
-            }
-            //remet les bouton a zero
-            for (let i = 0; i < allButtons.length; i++) {
-                const button = allButtons[i];
-button.className = button.className.replace(' active', '');button.textContent = '+';button.style.transform = 'scale(1)';
-            }
-        }
-        
-//quand la page est chargee on masque tout
-        document.addEventListener('DOMContentLoaded', function() {
-            const allDetails = document.getElementsByClassName('details');const allButtons = document.getElementsByClassName('details-btn');
-            for (let i = 0; i < allDetails.length; i++) {const detail = allDetails[i];
-                if (!detail.className.includes('hidden')) {detail.className = detail.className + ' hidden';}
-            }
-            for (let i = 0; i < allButtons.length; i++) {allButtons[i].textContent = '+';}
-        });
-        
-        //effet de survol sur les bouton
-        document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.getElementsByClassName('details-btn');
-            for (let i = 0; i < buttons.length; i++) {
-                const button = buttons[i];
-button.addEventListener('mouseenter', function() {if (!this.className.includes('active')) {this.style.transform = 'scale(1.1)';}});
-button.addEventListener('mouseleave', function() {if (!this.className.includes('active')) {this.style.transform = 'scale(1)';}});
-            }
-        });
-        
-        //creer les tooltip pour les competances
-        document.addEventListener('DOMContentLoaded', function() {
-            const skillItems = document.getElementsByClassName('skill-item');
-            for (let i = 0; i < skillItems.length; i++) {
-                const skillItem = skillItems[i];const tooltipText = skillItem.getAttribute('data-tooltip');
-                const tooltipElement = document.createElement('span');tooltipElement.className = 'tooltip';tooltipElement.textContent = tooltipText;
-                skillItem.appendChild(tooltipElement);
-                //evenement pour montrer le tooltip
-        skillItem.addEventListener('mouseenter', function(event) {showTooltipWithAnimation(tooltipElement);updateTooltipPosition(event, tooltipElement, skillItem);});
-                //suivre la souris
-                skillItem.addEventListener('mousemove', function(event) {updateTooltipPosition(event, tooltipElement, skillItem);});
-                //cacher quand souris part
-                skillItem.addEventListener('mouseleave', function() {hideTooltipWithAnimation(tooltipElement);});
-            }
-        });
-        
-//met a jour position du tooltip pour suivre souris
-        function updateTooltipPosition(event, tooltipElement, skillItem) {
-            const rect = skillItem.getBoundingClientRect();const mouseX = event.clientX - rect.left;const mouseY = event.clientY - rect.top;
-const offsetX = 15;const offsetY = 20;//decalage pour pas etre sur curseur
-tooltipElement.style.left = mouseX + offsetX + 'px';tooltipElement.style.top = mouseY + offsetY + 'px';tooltipElement.style.transform = 'none';
-        }
-        
-        //fait apparaitre tooltip progressivement
-        function showTooltipWithAnimation(tooltipElement) {
-    tooltipElement.style.visibility = 'visible';tooltipElement.style.opacity = '0';
-            let opacity = 0;const duration = 200;const steps = 10;const interval = duration / steps;let step = 0;
-            function animateShow() {step++;opacity = step / steps;tooltipElement.style.opacity = opacity;
-                if (step < steps) {setTimeout(animateShow, interval);}
-            }
-            animateShow();
-        }
-        
-        //cache tooltip progressivement
-        function hideTooltipWithAnimation(tooltipElement) {
-    let opacity = 1;const duration = 150;const steps = 8;const interval = duration / steps;let step = 0;
-            function animateHide() {step++;opacity = 1 - (step / steps);tooltipElement.style.opacity = opacity;
-                if (step < steps) {setTimeout(animateHide, interval);} else {tooltipElement.style.visibility = 'hidden';}
-            }
-            animateHide();
-        }
-        
-//affiche les etoiles pour chaque competance
-            document.addEventListener('DOMContentLoaded',function(){
-            const skillItems=document.getElementsByClassName('skill-item');
-                    for(let i=0;i<skillItems.length;i++){
-                    const skillItem=skillItems[i];const level=skillItem.getAttribute('data-level');
-                    if(level){
-                    //creer element pour les etoiles
-                    const starsSpan=document.createElement('span');starsSpan.className='skill-stars';
-                    let starsHTML='';
-                    //boucle pour ajouter les etoile pleine
-                    for(let j=1;j<=5;j++){
-                    if(j<=level){starsHTML+='<span class="star-filled">★</span>';}
-                    else{starsHTML+='<span class="star-empty">☆</span>';}
-                    }
-                    starsSpan.innerHTML=starsHTML;skillItem.appendChild(starsSpan);
-            }
-            }
-            });
-    </script>
+    <script src="js/resume.js"></script>
 </body>
 </html>

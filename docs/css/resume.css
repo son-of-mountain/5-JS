@@ -202,3 +202,26 @@ footer {  margin-top: 20px;  font-size: 0.9rem;  color: #555;  border-top: 1px s
 .skill-stars .star-empty {
     color: #ddd;
 }
+
+/* Styles pour le graphique d'evaluation */
+#skills-chart {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+#chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#skillsCanvas {
+    max-width: 100%;
+    height: auto;
+}
