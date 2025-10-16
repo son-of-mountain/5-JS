@@ -187,3 +187,18 @@ footer {  margin-top: 20px;  font-size: 0.9rem;  color: #555;  border-top: 1px s
     visibility: visible;
     opacity: 1;
 }
+.skill-stars {    display: inline-block;
+    margin-left: 8px;
+    font-size: 14px;
+    color: #ffc107;
+    letter-spacing: 2px;
+}
+
+.skill-stars .star-filled {    color: #ffc107;
+}
+
+
+
+.skill-stars .star-empty {
+    color: #ddd;
+}

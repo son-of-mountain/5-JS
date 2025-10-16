@@ -112,10 +112,10 @@
                 <dl>
                     <dt>Langages & Frameworks <button class="details-btn" onclick="toggleDetails('comp1')">+</button></dt>
                     <dd>
-                        <span class="skill-item" data-tooltip="ES6+, Async/Await, Promises, DOM manipulation, Event handling, Closures">JavaScript</span>, 
-                        <span class="skill-item" data-tooltip="Types avancés, Interfaces, Génériques, Décorateurs, Namespaces">TypeScript</span>, 
-                        <span class="skill-item" data-tooltip="Hooks, Context API, Redux, React Router, JSX, Components lifecycle">React</span>, 
-                        <span class="skill-item" data-tooltip="Express.js, API REST, Middleware, Authentification JWT, NPM packages">Node.js</span>
+                        <span class="skill-item" data-tooltip="ES6+, Async/Await, Promises, DOM manipulation, Event handling, Closures" data-level="4">JavaScript</span>, 
+                        <span class="skill-item" data-tooltip="Types avancés, Interfaces, Génériques, Décorateurs, Namespaces" data-level="3">TypeScript</span>, 
+                        <span class="skill-item" data-tooltip="Hooks, Context API, Redux, React Router, JSX, Components lifecycle" data-level="4">React</span>, 
+                        <span class="skill-item" data-tooltip="Express.js, API REST, Middleware, Authentification JWT, NPM packages" data-level="3">Node.js</span>
                     </dd>
                     <div id="comp1" class="details hidden">
                         <p><strong>Détails des compétences :</strong></p>
@@ -129,9 +129,9 @@
                     
                     <dt>Outils & Technologies <button class="details-btn" onclick="toggleDetails('comp2')">+</button></dt>
                     <dd>
-                        <span class="skill-item" data-tooltip="Workflow Git Flow, Branches, Merge requests, Rebase, Résolution de conflits">Git</span>, 
-                        <span class="skill-item" data-tooltip="Containerisation, Docker Compose, Dockerfile, Images, Volumes, Déploiement">Docker</span>, 
-                        <span class="skill-item" data-tooltip="GitHub Actions, Tests automatisés, Déploiement continu, Pipelines, Workflows">CI/CD</span>
+                        <span class="skill-item" data-tooltip="Workflow Git Flow, Branches, Merge requests, Rebase, Résolution de conflits" data-level="5">Git</span>, 
+                        <span class="skill-item" data-tooltip="Containerisation, Docker Compose, Dockerfile, Images, Volumes, Déploiement" data-level="3">Docker</span>, 
+                        <span class="skill-item" data-tooltip="GitHub Actions, Tests automatisés, Déploiement continu, Pipelines, Workflows" data-level="2">CI/CD</span>
                     </dd>
                     <div id="comp2" class="details hidden">
                         <p><strong>Détails des outils :</strong></p>
@@ -282,6 +282,25 @@ tooltipElement.style.left = mouseX + offsetX + 'px';tooltipElement.style.top = m
             }
             animateHide();
         }
+        
+//affiche les etoiles pour chaque competance
+            document.addEventListener('DOMContentLoaded',function(){
+            const skillItems=document.getElementsByClassName('skill-item');
+                    for(let i=0;i<skillItems.length;i++){
+                    const skillItem=skillItems[i];const level=skillItem.getAttribute('data-level');
+                    if(level){
+                    //creer element pour les etoiles
+                    const starsSpan=document.createElement('span');starsSpan.className='skill-stars';
+                    let starsHTML='';
+                    //boucle pour ajouter les etoile pleine
+                    for(let j=1;j<=5;j++){
+                    if(j<=level){starsHTML+='<span class="star-filled">★</span>';}
+                    else{starsHTML+='<span class="star-empty">☆</span>';}
+                    }
+                    starsSpan.innerHTML=starsHTML;skillItem.appendChild(starsSpan);
+            }
+            }
+            });
     </script>
 </body>
 </html>

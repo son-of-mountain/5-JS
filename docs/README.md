@@ -103,3 +103,36 @@ sur un terminal tactile, on note plusieur problemes :
 - le tooltip est concu pour suivre un curseur qui n'existe pas sur tactile
 
 ![alt text](image-3.png)
+
+## 5-auto-evaluation des connaissances
+
+afficher une auto-evaluation des connaissances techniques avec un systeme d'etoiles :
+
+- pour chaque competence technique, afficher un niveau de maitrise
+- entre 1 etoile pour connaissance basique et 5 etoiles pour expertise
+- les etoiles permette de visualiser rapidement le niveau
+
+**etapes realisees :**
+
+- ajout de l'attribut `data-level` sur chaque competence avec valeur entre 1 et 5
+- niveaux choisi : JavaScript (4★), TypeScript (3★), React (4★), Node.js (3★), Git (5★), Docker (3★), CI/CD (2★)
+- creation d'une fonction javascript pour generer dynamiquement les etoiles
+- utilisation des caractere unicode : ★ (etoile pleine) et ☆ (etoile vide)
+- boucle pour comparer le niveau et afficher les etoile correspondante
+- creation d'un element `<span class="skill-stars">` pour contenir les etoiles
+- ajout avec `appendChild()` a chaque competence
+- ajout du CSS pour styliser les etoile en couleur doree (#ffc107)
+- espacement entre les etoile avec `letter-spacing`
+
+**technologies utilisees :**
+
+- attribut HTML `data-level` pour stocker le niveau (1-5)
+- caracteres unicode ★ et ☆ pour les etoiles
+- `getAttribute('data-level')` pour recuperer le niveau
+- boucle `for` pour generer les 5 etoiles
+- condition `if(j<=level)` pour determiner si etoile pleine ou vide
+- `createElement('span')` pour creer le conteneur d'etoiles
+- `innerHTML` pour ajouter les etoiles en HTML
+- CSS pour couleur doree et espacement
+
+
