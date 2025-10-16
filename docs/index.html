@@ -76,6 +76,143 @@
             <section id="experiences">
                 <h3>Expériences professionnelles</h3>
                 <article>
+                    <h4>Développeur Web — ATOS <button class="details-btn" onclick="toggleDetails('exp1')">+</button></h4>
+                    <small>Septembre 2024 — Présent · Brest, France</small>
+                    <div id="exp1" class="details hidden">
+                        <p><strong>Responsabilités détaillées :</strong></p>
+                        <ul>
+                            <li>Développement d'interfaces utilisateur modernes avec React.js</li>
+                            <li>Intégration d'APIs REST et gestion des états avec Redux</li>
+                            <li>Optimisation des performances front-end</li>
+                            <li>Collaboration en équipe agile avec méthodologie Scrum</li>
+                            <li>Tests unitaires et d'intégration avec Jest</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> React, Redux, TypeScript, CSS3, Git</p>
+                    </div>
+                </article>
+                <article>
+                    <h4>Ingénieur Logiciel Junior — CGI <button class="details-btn" onclick="toggleDetails('exp2')">+</button></h4>
+                    <small>Janvier 2020 — Août 2022 · Rennes, France</small>
+                    <div id="exp2" class="details hidden">
+                        <p><strong>Responsabilités détaillées :</strong></p>
+                        <ul>
+                            <li>Développement d'APIs REST avec Node.js et Express</li>
+                            <li>Conception et optimisation de bases de données MongoDB</li>
+                            <li>Mise en place de tests automatisés</li>
+                            <li>Collaboration internationale avec des équipes distribuées</li>
+                            <li>Déploiement et monitoring d'applications</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> Node.js, Express, MongoDB, Docker, Jenkins</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="competences">
+                <h3>Compétences</h3>
+                <dl>
+                    <dt>Langages & Frameworks <button class="details-btn" onclick="toggleDetails('comp1')">+</button></dt>
+                    <dd>
+                        <span class="skill-item" data-tooltip="ES6+, Async/Await, Promises, DOM manipulation, Event handling, Closures" data-level="4">JavaScript</span>, 
+                        <span class="skill-item" data-tooltip="Types avancés, Interfaces, Génériques, Décorateurs, Namespaces" data-level="3">TypeScript</span>, 
+                        <span class="skill-item" data-tooltip="Hooks, Context API, Redux, React Router, JSX, Components lifecycle" data-level="4">React</span>, 
+                        <span class="skill-item" data-tooltip="Express.js, API REST, Middleware, Authentification JWT, NPM packages" data-level="3">Node.js</span>
+                    </dd>
+                    <div id="comp1" class="details hidden">
+                        <p><strong>Détails des compétences :</strong></p>
+                        <ul>
+                            <li><strong>javaScript :</strong> ES6+, async/Await, Promises, dom manipulation</li>
+                            <li><strong>typeScript :</strong> Interfaces, Génériques</li>
+                            <li><strong>react :</strong> Hooks, context API, Redux, react Router</li>
+                            <li><strong>Node.js :</strong> Express, API REST</li>
+                        </ul>
+                    </div>
+                    
+                    <dt>Outils & Technologies <button class="details-btn" onclick="toggleDetails('comp2')">+</button></dt>
+                    <dd>
+                        <span class="skill-item" data-tooltip="Workflow Git Flow, Branches, Merge requests, Rebase, Résolution de conflits" data-level="5">Git</span>, 
+                        <span class="skill-item" data-tooltip="Containerisation, Docker Compose, Dockerfile, Images, Volumes, Déploiement" data-level="3">Docker</span>, 
+                        <span class="skill-item" data-tooltip="GitHub Actions, Tests automatisés, Déploiement continu, Pipelines, Workflows" data-level="2">CI/CD</span>
+                    </dd>
+                    <div id="comp2" class="details hidden">
+                        <p><strong>Détails des outils :</strong></p>
+                        <ul>
+                            <li><strong>Git :</strong> Workflow Git Flow, Merge requests, Résolution de conflits</li>
+                            <li><strong>Docker :</strong> Containerisation, Docker Compose, Déploiement</li>
+                            <li><strong>CI/CD :</strong> GitHub Actions, Tests automatisés, Déploiement continu</li>
+                        </ul>
+                    </div>
+                </dl>
+            </section>
+            
+
+
+            <section id="skills-chart">
+                <h3>Graphique d'auto-évaluation</h3>
+                <div id="chart-container"><canvas id="skillsCanvas" width="800" height="400"></canvas>
+                </div>
+            </section>
+            
+            <section id="formations">
+                <h3>Formations</h3>
+                <ul>
+                    <li><strong>Master DOSI</strong> — Université de Bretagne Occidentale, 2019 <button class="details-btn" onclick="toggleDetails('form1')">+</button>
+                        <div id="form1" class="details hidden">
+                            <p><strong>Détails de la formation :</strong></p>
+                            <ul>
+                                <li>Développement Orienté Services et Intégration</li>
+                                <li>Architectures distribuées et microservices</li>
+                                <li>Programmation web avancée</li>
+                                <li>Gestion de projets informatiques</li>
+                                <li>Projet de fin d'études : Application de gestion e-commerce</li>
+                            </ul>
+                            <p><strong>Mention :</strong> Bien</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section id="langues">
+                <h3>Langues</h3>
+                <ul>
+                    <li>Francais — langue maternelle</li>
+                    <li>Anglais — Courant</li>
+                </ul>
+            </section>
+
+
+
+            <section id="hobbies">
+                <h3>Centres d'interêt</h3>
+                <p>Photographie</p>
+            </section>
+        </main>
+        <div id="wrapper" itemscope itemtype="http://schema.org/Person">
+        <header>
+            <div>
+                <div>
+                                        <img src="https://i.redd.it/saw-spongebob-wearing-a-grey-suit-so-i-had-to-add-some-v0-jjy5yfz03rie1.jpg?width=567&format=pjpg&auto=webp&s=6b7f081c22201bc23d48437b90118e23e173df50" alt="Photo de Mouaad ALAOUI" width="120" height="120" itemprop="image" />
+                </div>
+                <div>
+                                        <h1 itemprop="name"><i class="fa fa-camera-retro" aria-hidden="true"></i> mouaad ALAOUI</h1>
+                                        <h2 itemprop="jobTitle">Ingénieur Logiciel Full-Stack</h2>
+                    <ul>
+                        <li><strong>Nom :</strong> ALAOUI</li>
+                        <li><strong>prenom :</strong> Mouaad</li>
+                                                <li><strong>adresse :</strong> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">14 Jean Jaures</span>, <span itemprop="postalCode">29200</span> <span itemprop="addressLocality">Brest</span>, <span itemprop="addressCountry">France</span></span></li>
+                                                <li><strong>date de naissance :</strong> <time itemprop="birthDate" datetime="2000-06-12">12 juin 2000</time></li>
+                                                <li><strong>email :</strong> <a href="mailto:mouaad.alaoui@helo.fr" itemprop="email">mouaad.alaoui@helo.fr</a></li>
+                                                <li><strong>Nationalité :</strong> <span itemprop="nationality">Espagnol</span></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="presentation">
+                <h3>Présentation</h3>
+                <p>Je suis un ingénieur logiciel basé en France avec une forte appétence pour le développement web et les architectures distribuées.</p>
+                </section>
+            <section id="experiences">
+                <h3>Expériences professionnelles</h3>
+                <article>
                     <h4>Développeur Web — ATOS</h4>
                     <small>Septembre 2024 — Présent · Brest, France</small>
                     <p>Conception et développement d'applications front-end en React et intégration d'API REST. </p>
@@ -131,5 +268,6 @@
         </footer>
 
     </div>
+    <script src="js/resume.js"></script>
 </body>
 </html>
