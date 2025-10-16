@@ -135,4 +135,5 @@ afficher une auto-evaluation des connaissances techniques avec un systeme d'etoi
 - `innerHTML` pour ajouter les etoiles en HTML
 - CSS pour couleur doree et espacement
 
+![ajout des etoiles](image-4.png)
 
