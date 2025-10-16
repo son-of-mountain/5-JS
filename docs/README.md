@@ -163,3 +163,6 @@ afficher les valeur d'evaluation dans un graphique histogramme avec canvas :
 
 ![Images de canvas](image-5.png)
 
+
+### Creation de tag et publication de site 
+![Pusher le tag autoevaluation](image-6.png)
