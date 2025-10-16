@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV - UBO</title>
+    <meta name="description" content="A propos de moi">
+    <meta name="keywords" content="web,developer,resume">
+    <meta name="author" content="Mouaad">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .details-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .details-btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+        
+        .details-btn.active {
+            transform: rotate(45deg);
+            background: #dc3545;
+        }
+        
+        .details {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .details.hidden {
+            display: none;
+        }
+        
+        .details.expanding {
+            display: block;
+            height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            opacity: 0;
+        }
+        
+        .details ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .details li {
+            margin: 5px 0;
+        }
+        
+        /* Styles pour les tooltips */
+        .skill-item {
+            position: relative;
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 2px;
+            background: #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .skill-item:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .skill-item .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: normal;
+            white-space: normal;
+            width: 250px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .skill-item .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+        
+        .skill-item:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person", "name": "mouaad ALAOUI",
+            "jobTitle": "Ingénieur Logiciel FullStack",
+            "email": "mailto:mouaad.alaoui@helo.fr",
+            
+            "birthDate": "2000-06-12",
+            "nationality": "française",
+            
+            "image": "https://i.redd.it/saw-spongebob-wearing-a-grey-suit-so-i-had-to-add-some-v0-jjy5yfz03rie1.jpg?width=567&format=pjpg&auto=webp&s=6b7f081c22201bc23d48437b90118e23e173df50",
+            "sameAs": [
+                "https://www.linkedin.com/in/mouaad-alaoui",
+                "https://github.com/mouaad",
+                "https://twitter.com/mouaad"
+            ],
+
+
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "14 Jean Jaures",
+                "postalCode": "29200",
+
+                "addressLocality": "Brest",
+                "addressCountry": "France"
+            },
+
+
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Université d eBretagne Occidentale"
+            }
+        }
+                </script>
+</head>
+<body>
+        <div id="wrapper" itemscope itemtype="http://schema.org/Person">
+        <header>
+            <div>
+                <div>
+                                        <img src="https://i.redd.it/saw-spongebob-wearing-a-grey-suit-so-i-had-to-add-some-v0-jjy5yfz03rie1.jpg?width=567&format=pjpg&auto=webp&s=6b7f081c22201bc23d48437b90118e23e173df50" alt="Photo de Mouaad ALAOUI" width="120" height="120" itemprop="image" />
+                </div>
+                <div>
+                                        <h1 itemprop="name"><i class="fa fa-camera-retro" aria-hidden="true"></i> mouaad ALAOUI</h1>
+                                        <h2 itemprop="jobTitle">Ingénieur Logiciel Full-Stack</h2>
+                    <ul>
+                        <li><strong>Nom :</strong> ALAOUI</li>
+                        <li><strong>prenom :</strong> Mouaad</li>
+                                                <li><strong>adresse :</strong> <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">14 Jean Jaures</span>, <span itemprop="postalCode">29200</span> <span itemprop="addressLocality">Brest</span>, <span itemprop="addressCountry">France</span></span></li>
+                                                <li><strong>date de naissance :</strong> <time itemprop="birthDate" datetime="2000-06-12">12 juin 2000</time></li>
+                                                <li><strong>email :</strong> <a href="mailto:mouaad.alaoui@helo.fr" itemprop="email">mouaad.alaoui@helo.fr</a></li>
+                                                <li><strong>Nationalité :</strong> <span itemprop="nationality">Espagnol</span></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section id="presentation">
+                <h3>Présentation</h3>
+                <p>Je suis un ingénieur logiciel basé en France avec une forte appétence pour le développement web et les architectures distribuées.</p>
+                </section>
+            <section id="experiences">
+                <h3>Expériences professionnelles</h3>
+                <article>
+                    <h4>Développeur Web — ATOS <button class="details-btn" onclick="toggleDetails('exp1')">+</button></h4>
+                    <small>Septembre 2024 — Présent · Brest, France</small>
+                    <div id="exp1" class="details hidden">
+                        <p><strong>Responsabilités détaillées :</strong></p>
+                        <ul>
+                            <li>Développement d'interfaces utilisateur modernes avec React.js</li>
+                            <li>Intégration d'APIs REST et gestion des états avec Redux</li>
+                            <li>Optimisation des performances front-end</li>
+                            <li>Collaboration en équipe agile avec méthodologie Scrum</li>
+                            <li>Tests unitaires et d'intégration avec Jest</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> React, Redux, TypeScript, CSS3, Git</p>
+                    </div>
+                </article>
+                <article>
+                    <h4>Ingénieur Logiciel Junior — CGI <button class="details-btn" onclick="toggleDetails('exp2')">+</button></h4>
+                    <small>Janvier 2020 — Août 2022 · Rennes, France</small>
+                    <div id="exp2" class="details hidden">
+                        <p><strong>Responsabilités détaillées :</strong></p>
+                        <ul>
+                            <li>Développement d'APIs REST avec Node.js et Express</li>
+                            <li>Conception et optimisation de bases de données MongoDB</li>
+                            <li>Mise en place de tests automatisés</li>
+                            <li>Collaboration internationale avec des équipes distribuées</li>
+                            <li>Déploiement et monitoring d'applications</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> Node.js, Express, MongoDB, Docker, Jenkins</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="competences">
+                <h3>Compétences</h3>
+                <dl>
+                    <dt>Langages & Frameworks <button class="details-btn" onclick="toggleDetails('comp1')">+</button></dt>
+                    <dd>
+                        <span class="skill-item" data-tooltip="ES6+, Async/Await, Promises, DOM manipulation, Event handling, Closures">JavaScript</span>, 
+                        <span class="skill-item" data-tooltip="Types avancés, Interfaces, Génériques, Décorateurs, Namespaces">TypeScript</span>, 
+                        <span class="skill-item" data-tooltip="Hooks, Context API, Redux, React Router, JSX, Components lifecycle">React</span>, 
+                        <span class="skill-item" data-tooltip="Express.js, API REST, Middleware, Authentification JWT, NPM packages">Node.js</span>
+                    </dd>
+                    <div id="comp1" class="details hidden">
+                        <p><strong>Détails des compétences :</strong></p>
+                        <ul>
+                            <li><strong>javaScript :</strong> ES6+, async/Await, Promises, dom manipulation</li>
+                            <li><strong>typeScript :</strong> Interfaces, Génériques</li>
+                            <li><strong>react :</strong> Hooks, context API, Redux, react Router</li>
+                            <li><strong>Node.js :</strong> Express, API REST</li>
+                        </ul>
+                    </div>
+                    
+                    <dt>Outils & Technologies <button class="details-btn" onclick="toggleDetails('comp2')">+</button></dt>
+                    <dd>
+                        <span class="skill-item" data-tooltip="Workflow Git Flow, Branches, Merge requests, Rebase, Résolution de conflits">Git</span>, 
+                        <span class="skill-item" data-tooltip="Containerisation, Docker Compose, Dockerfile, Images, Volumes, Déploiement">Docker</span>, 
+                        <span class="skill-item" data-tooltip="GitHub Actions, Tests automatisés, Déploiement continu, Pipelines, Workflows">CI/CD</span>
+                    </dd>
+                    <div id="comp2" class="details hidden">
+                        <p><strong>Détails des outils :</strong></p>
+                        <ul>
+                            <li><strong>Git :</strong> Workflow Git Flow, Merge requests, Résolution de conflits</li>
+                            <li><strong>Docker :</strong> Containerisation, Docker Compose, Déploiement</li>
+                            <li><strong>CI/CD :</strong> GitHub Actions, Tests automatisés, Déploiement continu</li>
+                        </ul>
+                    </div>
+                </dl>
+            </section>       <section id="formations">
+                <h3>Formations</h3>
+                <ul>
+                    <li><strong>Master DOSI</strong> — Université de Bretagne Occidentale, 2019 <button class="details-btn" onclick="toggleDetails('form1')">+</button>
+                        <div id="form1" class="details hidden">
+                            <p><strong>Détails de la formation :</strong></p>
+                            <ul>
+                                <li>Développement Orienté Services et Intégration</li>
+                                <li>Architectures distribuées et microservices</li>
+                                <li>Programmation web avancée</li>
+                                <li>Gestion de projets informatiques</li>
+                                <li>Projet de fin d'études : Application de gestion e-commerce</li>
+                            </ul>
+                            <p><strong>Mention :</strong> Bien</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section id="langues">
+                <h3>Langues</h3>
+                <ul>
+                    <li>Francais — langue maternelle</li>
+                    <li>Anglais — Courant</li>
+                </ul>
+            </section>
+
+
+
+            <section id="hobbies">
+                <h3>Centres d'interêt</h3>
+                <p>Photographie</p>
+            </section>
+        </main>     
+        <footer>
+            <h4>Contact & réseaux</h4>
+
+            <p>Vous pouvez me retrouver sur :</p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/mouaad-alaoui" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/mouaad" target="_blank" rel="noopener">GitHub</a></li>
+            
+                    <li><a href="https://twitter.com/mouaad" target="_blank" rel="noopener">Twitter</a></li>
+            </ul>
+            <p>contact : mouaad.alaoui@helo.fr</p>
+            <p>&copy; 2025 Mouaad ALAOUI</p>
+        </footer>
+
+    </div>
+    
+    <script>
+        function toggleDetails(elementId) {
+            const detailsElement = document.getElementById(elementId);
+            const button = event.target;
+            
+            // Vérifier si l'élément cliqué est déjà ouvert
+            const isCurrentlyOpen = !detailsElement.classList.contains('hidden');
+            
+            // Fermer toutes les descriptions ouvertes
+            closeAllDetails();
+            
+            // Si l'élément n'était pas ouvert, l'ouvrir
+            if (!isCurrentlyOpen) {
+                // Afficher les détails
+                detailsElement.className = detailsElement.className.replace('hidden', '').trim();
+                button.className = button.className + ' active';
+                button.textContent = '×';
+                
+                // Animation d'entrée
+                detailsElement.style.opacity = '0';
+                detailsElement.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    detailsElement.style.opacity = '1';
+                    detailsElement.style.transform = 'translateY(0)';
+                }, 10);
+            }
+        }
+        
+        // Fonction pour fermer toutes les descriptions
+        function closeAllDetails() {
+            // Utiliser getElementsByClassName pour récupérer tous les éléments avec la classe 'details'
+            const allDetails = document.getElementsByClassName('details');
+            const allButtons = document.getElementsByClassName('details-btn');
+            
+            // Fermer tous les détails
+            for (let i = 0; i < allDetails.length; i++) {
+                const detail = allDetails[i];
+                if (!detail.className.includes('hidden')) {
+                    detail.style.opacity = '0';
+                    detail.style.transform = 'translateY(-10px)';
+                    
+                    // Ajouter la classe 'hidden' après l'animation
+                    setTimeout(() => {
+                        if (!detail.className.includes('hidden')) {
+                            detail.className = detail.className + ' hidden';
+                        }
+                    }, 300);
+                }
+            }
+            
+            // Réinitialiser tous les boutons
+            for (let i = 0; i < allButtons.length; i++) {
+                const button = allButtons[i];
+                button.className = button.className.replace(' active', '');
+                button.textContent = '+';
+                button.style.transform = 'scale(1)';
+            }
+        }
+        
+        // Fonction pour masquer tous les détails au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            const allDetails = document.getElementsByClassName('details');
+            const allButtons = document.getElementsByClassName('details-btn');
+            
+            // Masquer tous les détails
+            for (let i = 0; i < allDetails.length; i++) {
+                const detail = allDetails[i];
+                if (!detail.className.includes('hidden')) {
+                    detail.className = detail.className + ' hidden';
+                }
+            }
+            
+            // Réinitialiser tous les boutons
+            for (let i = 0; i < allButtons.length; i++) {
+                allButtons[i].textContent = '+';
+            }
+        });
+        
+        // Fonction pour ajouter un effet de survol sur les boutons
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.getElementsByClassName('details-btn');
+            
+            for (let i = 0; i < buttons.length; i++) {
+                const button = buttons[i];
+                
+                button.addEventListener('mouseenter', function() {
+                    if (!this.className.includes('active')) {
+                        this.style.transform = 'scale(1.1)';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.className.includes('active')) {
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+            }
+        });
+        
+        // Fonction pour créer et afficher les tooltips sur les compétences
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillItems = document.getElementsByClassName('skill-item');
+            
+            for (let i = 0; i < skillItems.length; i++) {
+                const skillItem = skillItems[i];
+                const tooltipText = skillItem.getAttribute('data-tooltip');
+                
+                // Créer l'élément tooltip
+                const tooltipElement = document.createElement('span');
+                tooltipElement.className = 'tooltip';
+                tooltipElement.textContent = tooltipText;
+                
+                // Ajouter le tooltip à l'élément
+                skillItem.appendChild(tooltipElement);
+                
+                // Événement pour afficher le tooltip au survol
+                skillItem.addEventListener('mouseenter', function() {
+                    showTooltipWithAnimation(tooltipElement);
+                });
+                
+                // Événement pour masquer le tooltip quand la souris quitte
+                skillItem.addEventListener('mouseleave', function() {
+                    hideTooltipWithAnimation(tooltipElement);
+                });
+            }
+        });
+        
+        // Fonction pour afficher le tooltip avec animation
+        function showTooltipWithAnimation(tooltipElement) {
+            tooltipElement.style.visibility = 'visible';
+            tooltipElement.style.opacity = '0';
+            
+            let opacity = 0;
+            const duration = 200; // 200ms pour l'animation
+            const steps = 10;
+            const interval = duration / steps;
+            let step = 0;
+            
+            function animateShow() {
+                step++;
+                opacity = step / steps;
+                tooltipElement.style.opacity = opacity;
+                
+                if (step < steps) {
+                    setTimeout(animateShow, interval);
+                }
+            }
+            
+            animateShow();
+        }
+        
+        // Fonction pour masquer le tooltip avec animation
+        function hideTooltipWithAnimation(tooltipElement) {
+            let opacity = 1;
+            const duration = 150;
+            const steps = 8;
+            const interval = duration / steps;
+            let step = 0;
+            
+            function animateHide() {
+                step++;
+                opacity = 1 - (step / steps);
+                tooltipElement.style.opacity = opacity;
+                
+                if (step < steps) {
+                    setTimeout(animateHide, interval);
+                } else {
+                    tooltipElement.style.visibility = 'hidden';
+                }
+            }
+            
+            animateHide();
+        }
+    </script>
+</body>
+</html>

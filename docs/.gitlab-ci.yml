@@ -1,0 +1,15 @@
+image: alpine:latest
+
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp ubo-resume.html public/index.html || true
+    - cp -r css public/ || true
+    - cp -r images public/ || true
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

@@ -1,0 +1,21 @@
+@media only screen and (max-width:740px){
+  body{background:  #f77}
+}
+@media only screen and (max-width:570px){
+  body{background:
+    #f77}
+}
+
+
+
+@media only screen and (max-width:480px){
+  body{background:#f77}
+}
+
+
+@media only screen and (max-width:480px){
+  body{background:  inherit}   #wrapper{width:100%}
+  header img{float:none;display:block;margin:0 auto 12px auto}
+  h1{text-align:  center}
+  h2{text-align:center}
+}
