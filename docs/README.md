@@ -1,8 +1,15 @@
+# Mon CV (notes)
+
+Note: le README principal a été déplacé à la racine du dépôt (`../README.md`). Ce fichier (`docs/README.md`) contient des notes complémentaires.
+
+Visiter le site : [monCV](https://son-of-mountain.github.io/5-JS/)
+
+![Moi](image/tp.png "Mouaad ELHANSALI")
 Visiter le site : [monCV](https://son-of-mountain.github.io/5-JS/)
 
 ![Moi](image/tp.png "Mouaad ELHANSALI")
 
-# TP - Javascript 
+# TP - Javascript
 
 ## 1-apparition des descriptions detaillees 
 
@@ -21,6 +28,7 @@ Modifier le fonctionement pour faire aparaitre une seule descriptions a la fois 
 
 
 Modifier l'apparition pour qu'elle soit progressive avec croissance lentement jusqu'a la taille normale :
+
 - animation de la hauteur de l'element de 0 a sa taille naturelles
 
 **etapes realisees :**
@@ -30,7 +38,8 @@ Modifier l'apparition pour qu'elle soit progressive avec croissance lentement ju
 - Animation progressivesur 500ms avec 25 etapes (interval de ~20ms)  
 
 
-resultat : 
+resultat :
+
 ![question 3](image/image.png)
 
 ![une se ferme une s'ouvert](image/image-1.png)
