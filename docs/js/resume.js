@@ -21,7 +21,11 @@ function closeAllDetails() {
     for (let i = 0; i < allDetails.length; i++) {
         const detail = allDetails[i];
         if (!detail.className.includes('hidden')) {
+
+
             detail.style.opacity = '0'; detail.style.transform = 'translateY(-10px)';
+            
+            
             setTimeout(() => { if (!detail.className.includes('hidden')) { detail.className = detail.className + ' hidden'; } }, 300);
         }
 
@@ -64,11 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const skillItems = document.getElementsByClassName('skill-item');
     for (let i = 0; i < skillItems.length; i++) {
         const skillItem = skillItems[i]; const tooltipText = skillItem.getAttribute('data-tooltip');
+        
         const tooltipElement = document.createElement('span'); tooltipElement.className = 'tooltip'; tooltipElement.textContent = tooltipText;
+        
+        
         skillItem.appendChild(tooltipElement);
         //evenement pour montrer le tooltip
+        
         skillItem.addEventListener('mouseenter', function (event) { showTooltipWithAnimation(tooltipElement); updateTooltipPosition(event, tooltipElement, skillItem); });
         //suivre la souris
+
         skillItem.addEventListener('mousemove', function (event) { updateTooltipPosition(event, tooltipElement, skillItem); });
         //cacher quand souris part
         skillItem.addEventListener('mouseleave', function () { hideTooltipWithAnimation(tooltipElement); });
@@ -146,8 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//tableau des valeur pour l'histogramme
-const skillsData = [
+let skillsData = [
     { name: 'JavaScript', level: 4, color: '#f7df1e' },
     { name: 'TypeScript', level: 3, color: '#3178c6' },
     { name: 'React', level: 4, color: '#61dafb' },
@@ -156,6 +164,113 @@ const skillsData = [
     { name: 'Docker', level: 3, color: '#2496ed' },
     { name: 'CI/CD', level: 2, color: '#6e5494' }
 ];
+
+function loadSkillsData(callback) {
+    // try to fetch the JSON relative to the HTML page
+    fetch('data/skills.json').then(function (resp) {
+        if (!resp.ok) throw new Error('HTTP error ' + resp.status);
+        return resp.json();
+    }).then(function (json) {
+        skillsData = json;
+        if (typeof callback === 'function') callback();
+    }).catch(function (err) {
+        // fallback: keep existing skillsData and still draw
+        console.warn('Could not load data/skills.json, using fallback skillsData. Error:', err);
+        if (typeof callback === 'function') callback();
+    });
+}
+
+function populateSkillsFromJSON() {
+    try {
+
+        const compSection = document.getElementById('competences');
+        if (!compSection) return;
+        const ddList = compSection.getElementsByTagName('dd');
+        if (!ddList || ddList.length < 2) return;
+
+        const langDd = ddList[0];
+        const toolsDd = ddList[1];
+
+
+        const existingLangItems = langDd.getElementsByClassName('skill-item');
+        const existingToolItems = toolsDd.getElementsByClassName('skill-item');
+        if (existingLangItems.length > 0 || existingToolItems.length > 0) {
+            return;
+        }
+
+
+        function createSkillSpan(skill) {
+            const span = document.createElement('span');
+
+            span.className = 'skill-item';
+            span.setAttribute('data-tooltip', skill.tooltip || '');
+
+            span.setAttribute('data-level', String(skill.level || 0));
+            
+            span.textContent = skill.name;
+            return span;
+        }
+
+        // populate language and tool lists based on skill.group
+        const langItems = [];
+        const toolItems = [];
+        for (let i = 0; i < skillsData.length; i++) {
+            const s = skillsData[i];
+            if (s.group === 'tools') toolItems.push(s);
+            else langItems.push(s); // default to lang
+        }
+
+        // append with commas like original markup
+        langItems.forEach(function (s, idx) {
+            const sp = createSkillSpan(s);
+            langDd.appendChild(sp);
+            if (idx < langItems.length - 1) langDd.appendChild(document.createTextNode(', '));
+        });
+        toolItems.forEach(function (s, idx) {
+            const sp = createSkillSpan(s);
+            toolsDd.appendChild(sp);
+            if (idx < toolItems.length - 1) toolsDd.appendChild(document.createTextNode(', '));
+        });
+    } catch (e) {
+        console.warn('populateSkillsFromJSON failed', e);
+    }
+}
+
+// Initialize tooltip and star logic for dynamically created skill-item elements
+function initDynamicSkillBehaviors() {
+    // tooltips
+    const skillItems = document.getElementsByClassName('skill-item');
+    for (let i = 0; i < skillItems.length; i++) {
+        const skillItem = skillItems[i];
+        // avoid duplication: if already has a child .tooltip, skip
+        if (!skillItem.querySelector('.tooltip')) {
+            const tooltipText = skillItem.getAttribute('data-tooltip') || '';
+            const tooltipElement = document.createElement('span'); tooltipElement.className = 'tooltip'; tooltipElement.textContent = tooltipText;
+            skillItem.appendChild(tooltipElement);
+            skillItem.addEventListener('mouseenter', function (event) { showTooltipWithAnimation(tooltipElement); updateTooltipPosition(event, tooltipElement, skillItem); });
+            skillItem.addEventListener('mousemove', function (event) { updateTooltipPosition(event, tooltipElement, skillItem); });
+            skillItem.addEventListener('mouseleave', function () { hideTooltipWithAnimation(tooltipElement); });
+        }
+    }
+
+    // stars
+    for (let i = 0; i < skillItems.length; i++) {
+        const skillItem = skillItems[i];
+        // avoid duplicate stars
+        if (!skillItem.querySelector('.skill-stars')) {
+            const level = parseInt(skillItem.getAttribute('data-level') || '0', 10);
+            if (level) {
+                const starsSpan = document.createElement('span'); starsSpan.className = 'skill-stars';
+                let starsHTML = '';
+                for (let j = 1; j <= 5; j++) {
+                    if (j <= level) { starsHTML += '<span class="star-filled">★</span>'; }
+                    else { starsHTML += '<span class="star-empty">☆</span>'; }
+                }
+                starsSpan.innerHTML = starsHTML; skillItem.appendChild(starsSpan);
+            }
+        }
+    }
+}
 
 //fonction pour dessiner histogramme avec canvas
 function drawSkillsChart() {
@@ -196,22 +311,19 @@ function drawSkillsChart() {
         
         
         const barHeight = (skill.level / 5) * maxBarHeight;
-        // y position de la barre
         const y = startY - barHeight;
-        //dessine barre avec couleur
         ctx.fillStyle = skill.color;
 
 
         ctx.fillRect(x, y, barWidth, barHeight);
-        //bordure de la barre
+
         ctx.strokeStyle = '#333'; ctx.lineWidth = 1; ctx.strokeRect(x, y, barWidth, barHeight);
-        //nom competence en dessous
+
         ctx.fillStyle = '#333'; ctx.font = '11px Arial'; ctx.textAlign = 'center';
         ctx.save(); ctx.translate(x + barWidth / 2, startY + 15); ctx.rotate(-Math.PI / 6);
         ctx.fillText(skill.name, 0, 0); ctx.restore();
         
         
-        //affiche niveau sur la barre
         ctx.fillStyle = '#fff'; ctx.font = 'bold 16px Arial'; ctx.textAlign = 'center';
         ctx.fillText(skill.level + '★', x + barWidth / 2, y + barHeight / 2 + 5);
     }
@@ -225,5 +337,11 @@ function drawSkillsChart() {
 
 
 
-//appelle la fonction au chargement
-document.addEventListener('DOMContentLoaded', drawSkillsChart);
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadSkillsData(function () {
+        populateSkillsFromJSON();
+        initDynamicSkillBehaviors();
+        drawSkillsChart();
+    });
+});
