@@ -1,10 +1,3 @@
-# Mon CV (notes)
-
-Note: le README principal a été déplacé à la racine du dépôt (`../README.md`). Ce fichier (`docs/README.md`) contient des notes complémentaires.
-
-Visiter le site : [monCV](https://son-of-mountain.github.io/5-JS/)
-
-![Moi](image/tp.png "Mouaad ELHANSALI")
 Visiter le site : [monCV](https://son-of-mountain.github.io/5-JS/)
 
 ![Moi](image/tp.png "Mouaad ELHANSALI")
